@@ -8,10 +8,10 @@ reports = [list(map(int, x.split())) for x in data.splitlines() if len(x.strip()
 
 # func to check if a report is safe
 def process_report(report):
-    # check that number always increase or decrease, and have no doubles
+    # check that numbers always increase or decrease, and there's no doubles
     if not (report==sorted(report) or report==sorted(report, reverse=True)) or not len(set(report))==len(report):
         return False
-    # split list into overlapping chucks of two adjacent numbers for eacy cal, check that difference is < 4 (equal have 
+    # split list into overlapping chucks of two adjacent numbers for easy cal, check that difference is < 4 (equals have 
     # already been filtered out above)  
     c = 2 # chunk size
     o = 1 # overlap
