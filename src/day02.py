@@ -4,6 +4,17 @@ from utils.read import read_data
 
 data = read_data(2)
 
+# data = """
+# 7 6 4 2 1
+# 1 2 7 8 9
+# 9 7 6 2 1
+# 1 3 2 4 5
+# 8 6 4 4 1
+# 1 3 6 7 9
+# """
+# s1 = 2
+# s2 = 4
+
 reports = [list(map(int, x.split())) for x in data.splitlines() if len(x.strip())>0]
 
 # func to check if a report is safe
@@ -20,16 +31,16 @@ def process_report(report):
     return True
 
 # part 1
-safe = 0
+s1 = 0
 unsafe_reports = []
 # count safe ones, save unsafe ones
 for report in reports:
     if process_report(report):
-        safe += 1
+        s1 += 1
         continue
     unsafe_reports.append(report)
 
-print("safe:",safe)
+print(s1)
 
 
 # part 2
@@ -43,5 +54,5 @@ for f_report in unsafe_reports:
         also_safe += 1
         break
 
-print("also safe:",also_safe)
-print("safe + also safe:", safe + also_safe)
+s2 = s1 + also_safe
+print(s2)
