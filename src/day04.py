@@ -60,7 +60,7 @@ print(s1)
 
 s2 = 0
 ymas = 'MAS'
-i = int((len(ymas)-1)/2)
+i = (len(ymas)-1)//2
 
 for r in range(rows):
     for c in range(cols):
